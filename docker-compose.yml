@@ -1,0 +1,17 @@
+version: '2'
+services:
+  mysql:
+    container_name: flask_mysql
+    restart: always
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: '' # TODO: Change this
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      MYSQL_USER: 'test'
+      MYSQL_PASS: 'pass'
+    volumes:
+      - my-datavolume:/var/lib/mysql
+    ports:
+      - 3306:3306
+volumes:
+  my-datavolume:

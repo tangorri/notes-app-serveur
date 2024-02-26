@@ -1,0 +1,7 @@
+POST http://localhost:3000/notes/
+content-type: application/json
+
+{
+  "id": null,
+  "text": "added using testing tool"
+}
