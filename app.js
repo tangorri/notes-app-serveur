@@ -1,3 +1,5 @@
+import 'dotenv/config';
+
 import express, { json, urlencoded } from 'express';
 // var cors = require('cors');
 import cors from 'cors';
@@ -24,4 +26,4 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
-app.listen(3000, () => console.log("Serveur API démarré"));
+app.listen(process.env.SERVER_PORT, () => console.log("Serveur API démarré"));
