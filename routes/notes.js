@@ -1,18 +1,20 @@
 import mysql from 'mysql2/promise';
 import { NoteController } from '../controllers/note-controller.js';
 import { Router } from 'express';
-var router = Router();
 
+// middleware d'authentification
+import verifyToken from '../middleware/auth-middleware.js';
+
+const router = Router();
 const noteController = new NoteController();
 
 /* GET notes listing. */
-router.get('/', function(req, res, next) {
+router.get('/', verifyToken, function(req, res, next) {
   noteController.listAll(req, res);
 });
 
 //  create a new note
 router.post('/', function(req, res) {
-  console.log('red body from router: ', req.body);
   noteController.create(req, res);
 });
 
