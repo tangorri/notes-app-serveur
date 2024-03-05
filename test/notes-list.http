@@ -1,1 +1,3 @@
 http://localhost:3000/notes/
+content-type: application/json
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwLCJpYXQiOjE3MDk2NTE5MDMsImV4cCI6MTcwOTY1NTUwM30.bycta8l1jkrJCPKOYYigrlDNwgIPfL2h8zWsi3nERTQ

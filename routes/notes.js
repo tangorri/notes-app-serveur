@@ -1,12 +1,13 @@
-import mysql from 'mysql2/promise';
+import verifyToken from '../middleware/auth-middleware.js';
+
 import { NoteController } from '../controllers/note-controller.js';
 import { Router } from 'express';
-var router = Router();
+const router = Router();
 
 const noteController = new NoteController();
 
 /* GET notes listing. */
-router.get('/', function(req, res, next) {
+router.get('/', verifyToken, function(req, res, next) {
   noteController.listAll(req, res);
 });
 
