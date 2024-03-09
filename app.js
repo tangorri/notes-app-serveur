@@ -5,10 +5,9 @@ import express, { json, urlencoded } from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 
-
-
 // importation du code des sous routeurs
 import notesRouter from './routes/notes.js';
+import usersRouter from './routes/users.js';
 
 var app = express();
 
@@ -19,7 +18,12 @@ app.use(json());
 
 // Initialisation du Router
 app.use('/notes', notesRouter);
+app.use('/users/', usersRouter);
 app.use('/', (req, res) => res.send('et oui on vous souhaite la bienvenue!'));
+
+// prevent process to crash on exceptions.
+// will output the error instead.
+// https://stackoverflow.com/questions/36113101/handling-404-500-and-exceptions-in-node-js-and-express
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
